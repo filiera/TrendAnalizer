@@ -1,0 +1,21 @@
+stworzenie topica:
+docker exec broker-1 /opt/kafka/bin/kafka-topics.sh \
+  --create --topic raw_tweets1 \
+  --bootstrap-server broker-1:9092 \
+  --partitions 3 \
+  --replication-factor 2
+
+pokazanie informacji o topicu:
+docker exec broker-1 /opt/kafka/bin/kafka-topics.sh \
+  --describe --topic raw_tweets1 \
+  --bootstrap-server broker-1:9092
+
+W przypadku braku pythona:
+sudo apt install -y python3 python3-pip
+
+Zainstalowanie zależności:
+pip install -r requirements.txt
+
+Odinstalowanie zależności:
+pip uninstall -r requirements.txt -y
+

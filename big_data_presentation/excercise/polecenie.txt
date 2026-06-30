@@ -1,0 +1,21 @@
+Stwórz dwa programy:
+1. Producer (czujnik temperatury)
+generuje losowe odczyty temperatury z serwera
+wysyła dane do Kafki
+2. Consumer (system alarmowy)
+odbiera dane
+sprawdza czy temperatura jest bezpieczna
+generuje alerty
+
+Producer wysała event tego rodzaju:
+{
+  "server_id": 1,
+  "temperature": 35.7
+}
+temperatura losowa np. 20–90°C
+co 1–2 sekundy nowy pomiar
+
+Consumer subskrybuje topic server_temps i według następującej logiki printuje odpowiednie wiadomosci:
+≤ 60°C → OK
+60–75°C → WARNING
+75°C → CRITICAL ALERT
